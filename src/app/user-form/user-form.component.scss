@@ -1,0 +1,166 @@
+.body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-section,
+.preview-section {
+  padding: 100px;
+
+}
+.preview-section{
+  width: 260px;
+}
+
+.character-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+.character-body {
+  position: relative;
+  width: 300px;
+  height: 500px;
+}
+
+.head {
+  position: absolute;
+  width: 80px;
+  height: 100px;
+  left: 110px;
+  top: 50px;
+  border-radius: 40px;
+  z-index: 2;
+
+  .eyes {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+
+    .eye {
+      width: 15px;
+      height: 15px;
+      background: #333;
+      border-radius: 50%;
+    }
+  }
+}
+
+.hair {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background: #654321;
+  border-radius: 20px;
+
+  &.short {
+    height: 30px;
+  }
+
+  &.long {
+    height: 60px;
+  }
+
+  &.ponytail {
+    /* specific styling */
+  }
+
+  &.mohawk {
+    /* specific styling */
+  }
+
+  &.braided {
+    /* specific styling */
+  }
+}
+
+.torso {
+  position: absolute;
+  width: 120px;
+  height: 150px;
+  background: #789;
+  left: 90px;
+  top: 150px;
+
+  &.slim {
+    width: 100px;
+  }
+
+  &.muscular {
+    width: 140px;
+  }
+}
+
+.arms {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .arm {
+    width: 60px;
+    height: 120px;
+    background: #789;
+
+    &.left {
+      transform: rotate(-20deg);
+    }
+
+    &.right {
+      transform: rotate(20deg);
+    }
+  }
+}
+
+.legs {
+  position: absolute;
+  top: 300px;
+  left: 120px;
+  display: flex;
+  gap: 40px;
+
+  .leg {
+    width: 40px;
+    height: 150px;
+    background: #789;
+  }
+}
+
+.armor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  &.leather {
+    background: #8b4513;
+  }
+
+  &.chainmail {
+    background: #c0c0c0;
+  }
+
+  &.plate {
+    background: #d3d3d3;
+  }
+
+  &.robes {
+    background: #483d8b;
+  }
+
+  &.none {
+    background: transparent;
+  }
+}

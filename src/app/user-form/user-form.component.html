@@ -1,0 +1,162 @@
+<div class="body">
+  <!-- Form Section -->
+  <div class="form-section">
+    <!-- Existing form fields -->
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Character Name</mat-label>
+        <input matInput
+               placeholder="Enter name"
+               [(ngModel)]="character.name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <input matInput
+               placeholder="Enter gender"
+               [(ngModel)]="character.gender">
+        <mat-icon matSuffix>wc</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Class</mat-label>
+        <input matInput
+               placeholder="Enter class"
+               [(ngModel)]="character.class">
+        <mat-icon matSuffix>bolt</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Race</mat-label>
+        <input matInput
+               placeholder="Enter race"
+               [(ngModel)]="character.race">
+        <mat-icon matSuffix>group</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput
+               type="number"
+               placeholder="Enter age"
+               [(ngModel)]="character.age">
+        <mat-icon matSuffix>elderly</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Body Type</mat-label>
+        <mat-select [(ngModel)]="character.bodyType"
+                    name="bodyType">
+          <mat-option value="slim">Slim</mat-option>
+          <mat-option value="average">Average</mat-option>
+          <mat-option value="muscular">Muscular</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Skin Color</mat-label>
+        <input matInput
+               type="color"
+               [(ngModel)]="character.skinColor"
+               name="skinColor">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Hair Style</mat-label>
+        <mat-select [(ngModel)]="character.hairStyle"
+                    name="hairStyle">
+          <mat-option *ngFor="let style of hairStyles"
+                      [value]="style">
+            {{ style }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Armor Type</mat-label>
+        <mat-select [(ngModel)]="character.armorType"
+                    name="armorType">
+          <mat-option *ngFor="let armor of armorTypes"
+                      [value]="armor">
+            {{ armor }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+  </div>
+
+  <!-- Character Preview Section -->
+
+  <div class="character-container">
+    <div class="character-body"
+         [style.filter]="'hue-rotate(' + character.hueRotation + 'deg)'">
+      <!-- Head -->
+      <div class="head"
+           [style.backgroundColor]="character.skinColor">
+        <div class="hair"
+             [class]="character.hairStyle"></div>
+        <div class="eyes">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="torso"
+           [class]="character.bodyType">
+        <div class="armor"
+             [class]="character.armorType"></div>
+      </div>
+
+      <!-- Arms -->
+      <div class="arms"
+           [class]="character.bodyType">
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+      </div>
+
+      <!-- Legs -->
+      <div class="legs"
+           [class]="character.bodyType">
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+      </div>
+    </div>
+  </div>
+  <div class="preview-section">
+    <mat-card class="character-card">
+      <mat-card-header>
+        <mat-card-title>{{ character.name || 'Unnamed Hero' }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ character.race || 'Unknown Race' }} {{ character.class || 'Adventurer' }}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="character-details">
+          <p><mat-icon>wc</mat-icon> {{ character.gender || 'Unknown Gender' }}</p>
+          <p><mat-icon>cake</mat-icon> {{ character.age ? character.age + ' years' : 'Age unknown' }}</p>
+        </div>
+        <div class="character-visual">
+          <mat-icon class="character-icon"
+                    [style.color]="character.color || '#673ab7'">
+            person
+          </mat-icon>
+          <div class="character-traits">
+            <span class="race-badge">{{ character.race || '?' }}</span>
+            <span class="class-badge">{{ character.class || '?' }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
